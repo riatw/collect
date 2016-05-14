@@ -1,0 +1,46 @@
+@charset 'UTF-8';
+html {
+	color : #000;
+	background : #fff;
+	font-family : Meiryo, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'ＭＳ Ｐゴシック', Helvetica, Arial, sans-serif;
+}
+
+body {
+	font-size : 14px;
+	line-height : 1.75;
+}
+
+/* link style */
+a:link {
+	color : #98117e;
+	text-decoration : none;
+}
+
+a:visited {
+	color : #98117e;
+	text-decoration : none;
+}
+
+a:hover, a:active {
+	color : #98117e;
+	text-decoration : underline;
+}
+
+/* header style */
+/* content style */
+/* footer style */
+/* wysiwyg style */
+/* print style */
+@media print {
+	html {
+		background : none;
+	}
+	body {
+		padding : 0;
+		background : none;
+	}
+	/* for IE7 */
+	*:first-child + html body {
+		zoom : 67%;
+	}
+}

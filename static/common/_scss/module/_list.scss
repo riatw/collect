@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+/*
+	module:　m-list-inline
+	- 横並びリスト
+-----------------------------------------------------------------*/
+.m-list-inline {
+	letter-spacing: -.40em;
+
+	li {
+		// @include inline-block;
+		margin-right: 20px;
+		vertical-align: top;
+		letter-spacing: normal;
+
+		&.lastChild {
+			margin-right: 0 !important;
+		}
+	}
+}
+
+/*
+	module: m-list-indent
+	- テキストの頭出し
+-----------------------------------------------------------------*/
+.m-list-indent {
+	li {
+		margin-left: 1em;
+		text-indent: -1em;
+	}
+}
+
+/*
+	module:　m-list-topicpath
+	- パンくず
+-----------------------------------------------------------------*/
+.m-list-topicpath {
+	// @include clearfix;
+	font-size: fz(14,12);
+
+	li {
+		float: left;
+		margin-right: 6px;
+		padding-right: 12px;
+		background: url("i_topicpath.gif") no-repeat right center;
+
+		&.lastChild {
+			margin-right: 0;
+			padding-right: 0;
+			font-weight: bold;
+			background: none;
+		}
+	}
+}
+
+.m-list-news {
+	> li {
+		padding: 10px 0;
+		border-bottom: 1px dotted #ccc;
+		line-height: 1.4;
+
+		dl {
+			dt {
+				float: left;
+				width: 9.5em;
+			}
+			dd {
+				overflow: hidden;
+				*zoom: 1;
+
+				a {
+					color: #962b20;
+				}
+			}
+		}
+	}
+}

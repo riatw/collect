@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+/*
+  module: m-box-fixed
+  - 固定幅・中央揃えのボックス
+*/
+.m-box-fixed {
+	width: $fixedWidth;
+	margin: 0 auto;
+}
+
+/*
+	module:　m-opacityHover
+	- ホバー時に下の画像を透過させる
+-----------------------------------------------------------------*/
+.m-box-opacity {
+	display: inline-block;
+
+	&:hover img {
+		opacity: 0.7;
+	}
+}
+
+/*
+	module:box-imgTxt
+	- 画像とテキストの横並び
+*/
+.m-box-imgTxt1 {
+	@include clearfix;
+
+	.imgBox {
+		float: left;
+		margin-right: 20px;
+	}
+	.textBox {
+		overflow: hidden;
+	}
+}
+.m-box-imgTxt2 {
+	@include clearfix;
+
+	.imgBox {
+		float: right;
+		margin-left: 20px;
+	}
+	.txtBox {
+		overflow: hidden;
+	}
+}
+
+/*
+	module:　m-box-padding
+-----------------------------------------------------------------*/
+.m-box-padding {
+	padding: 20px;
+}
+
+.m-box-grid {
+	@include grid-row(10px);
+
+	.grid-col4 {
+		@include grid(12,4,10px);
+	}
+}
