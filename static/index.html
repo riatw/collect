@@ -17,7 +17,7 @@
 	<meta property="og:site_name" content="サイトタイトル">
 
 	<link rel="stylesheet" href="common/css/reset.css">
-	<link rel="stylesheet" href="common/css/helper.css">
+	<link rel="stylesheet" href="common/css/common.css">
 	<link rel="stylesheet" href="common/css/module.css">
 	<link rel="stylesheet" href="common/css/layout.css">
 	<link rel="stylesheet" href="common/css/unique/top.css">
@@ -35,19 +35,32 @@
 	<div id="l-wrap">
 		<!-- [ GLOBAL HEADER ] -->
 		<div id="l-header">
+			<div class="m-box-fixed">
+				<h1>
+					<i class="icon icon-download"></i>
+					<span>collect</span>
+				</h1>
 
+				<div class="header-menu">
+					<login></login>
+				</div>
+			</div>
 		</div>
 		<!-- [ /GLOBAL HEADER ] -->
 
 		<!-- [ CONTENT ] -->
 		<div id="l-content">
-			<todo></todo>
+			<div class="m-box-fixed">
+				<item></item>
+			</div>
 		</div>
 		<!-- [ /CONTENT ] -->
 
 		<!-- [ GLOBAL FOOTER ] -->
 		<div id="l-footer">
-
+			<div class="m-box-fixed">
+				<p>© Collect. All Rights Reserved.</p>
+			</div>
 		</div>
 		<!-- [ /GLOBAL FOOTER ] -->
 
@@ -56,11 +69,10 @@
 
 	<script src="common/lib/data-api/v3/js/mt-data-api.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.4.0/riot+compiler.min.js"></script>
-	<script src="todo.tag" type="riot/tag"></script>
+	<script src="login.tag.html" type="riot/tag"></script>
+	<script src="item.tag.html" type="riot/tag"></script>
 	<script>
-		riot.mount('todo', {
-			heading: 'Hello Riot!'
-		})
+		riot.mount('*')
 	</script>
 	<script src="common/lib/jquery/jquery.js"></script>
 	<script src="common/lib/modernizr/modernizr.js"></script>

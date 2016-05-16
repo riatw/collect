@@ -1,0 +1,105 @@
+<item>
+<div class="m-box-filter">
+	<input type="text" name="filterText" placeholder="You can filter with the entered keyword." onkeyup="{filtered}">
+</div>
+
+<ul class="m-list-item">
+<li each={ items.filter(itemsFilter) }>
+	<a href="{body}" target="_blank">
+		<p class="item-title">
+			{title}
+		</p>
+		<p class="item-url">
+			{body}
+		</p>
+		<ul class="item-ctrl">
+			<li>
+				<div class="ctrl-delete" onclick={ parent.remove }><i class="icon icon-bin2"></i></div>
+			</li>
+		</ul>
+	</a>
+</li>
+</ul>
+
+<script>
+//api setting
+var api = new MT.DataAPI({
+	baseUrl:  "http://riatw.me/mt/mt-data-api.cgi",
+	clientId: "collect"
+});
+var siteId = 5;
+
+//initialize
+this.items = [
+  { title: "loading..." }
+]
+
+//function add
+add(e) {
+	var input = e.target[0]
+	this.items.push({ title: input.value })
+	input.value = ''
+}
+
+//function remove
+remove(event) {
+	var item = event.item
+	var index = this.items.indexOf(item)
+	var target = this.items[index];
+	var entryId = target.id;
+	var that = this;
+
+	if( window.confirm('削除しますがよろしいですか？') ){
+		api.deleteEntry(siteId, entryId, function(response) {
+			if (response.error) {
+				// エラー処理
+				alert("削除に失敗しました。ログイン状況を確認してください。");
+				return;
+			}
+
+			that.items.splice(index, 1)
+			that.update()
+		});
+	}
+}
+
+filtered(event) {
+	// console.log(this.filterText.value);
+}
+
+itemsFilter(item) {
+	if ( item.title.indexOf(this.filterText.value) != -1 ) {
+		return item;
+	}
+	if ( item.body.indexOf(this.filterText.value) != -1 ) {
+		return item;
+	}
+}
+
+//load
+var params = {};
+var that = this;
+
+api.listEntries(siteId, params, function(response) {
+	if (response.error) {
+		// エラー処理
+		return;
+	}
+	that.items = response.items
+	that.update()
+});
+
+// http://tenderfeel.xsrv.jp/javascript/2220/
+// riot.mixin('Utility', {
+//   formatDate: function(date) {
+//     var d = new Date(date);
+//     return d.getFullYear() + '/' + (d.getMonth()+1) + '/' + d.getDate();
+//   }
+// });
+
+// //使うとき
+// this.mixin('Utility');
+
+</script>
+
+</item>

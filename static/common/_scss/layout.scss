@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 @import "core";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,700);
 
 html {
     color: $defaultTxtColor;
@@ -31,14 +32,50 @@ a:hover, a:active {
 
 /* header style */
 #l-header {
+	padding: 10px 0;
+	border-bottom: 1px solid #e6e6e8;
+	background: #fff;
+
+	.m-box-fixed {
+		position: relative;
+	}
+
+	h1 {
+		font-size: fz(13,22);
+		font-family: Arial;
+
+		i {
+			margin-right: 5px;
+			color: #ef4056;
+		}
+
+		span {
+			color: #666;
+			font-family: Ubuntu;
+		}
+	}
+
+	.header-menu {
+		position: absolute;
+		right: 0;
+		top: 7px;
+	}
 }
 
 /* content style */
 #l-content {
+	padding: 50px 0;
 }
 
 /* footer style */
 #l-footer {
+	padding: 20px 0;
+	border-top: 1px solid #e6e6e8;
+
+	p {
+		font-family: Arial;
+		text-align: center;
+	}
 }
 
 /* wysiwyg style */

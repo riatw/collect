@@ -1,0 +1,98 @@
+<login>
+
+<div class="m-box-login">
+	<div class="login-form" if="{status=='nologin'}" onsubmit="{login}">
+		<form>
+			<input type="text" name="username" placeholder="username">
+			<input type="password" name="password" placeholder="password">
+
+			<button type="submit">
+				Login
+			</button>
+		</form>
+	</div>
+
+	<div class="login-logout" if="{status==='login'}">
+		<span>
+			{username}
+		</span>
+		<button onclick="{logout}">
+			Logout
+		</button>
+	</div>
+</div>
+
+<script>
+//api setting
+var api = new MT.DataAPI({
+	baseUrl:  "http://riatw.me/mt/mt-data-api.cgi",
+	clientId: "collect"
+});
+var siteId = 5;
+
+this.status = "nologin";
+
+var that = this;
+
+api.getToken(function(response) {
+	if (response.error) {
+		// エラー処理
+		return;
+	}
+
+	api.getUser("me", function(response) {
+		if (response.error) {
+			// エラー処理
+			return;
+		}
+
+		that.status = "login";
+		that.username = response.name;
+		that.update();
+	});
+});
+
+login(e) {
+	var that = this;
+
+	api.authenticate({
+		username: $("[name='username']").val(),
+		password: $("[name='password']").val(),
+		remember: true
+	}, function(response) {
+		api.getUser("me", function(response) {
+			if (response.error) {
+				// エラー処理
+				return;
+			}
+
+			that.status = "login";
+			that.username = response.name;
+			that.update();
+		});
+	});
+
+	return false;
+};
+
+
+logout(e) {
+	var that = this;
+
+	api.revokeAuthentication(function(response) {
+		if (response.error) {
+			// エラー処理
+			return;
+		}
+
+		that.status = "nologin";
+		that.username = "";
+		that.update();
+	});
+
+	return false;
+};
+
+</script>
+
+</login>

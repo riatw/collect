@@ -1,7 +1,10 @@
+
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,700);
+
 @charset 'UTF-8';
 html {
-	color : #000;
-	background : #fff;
+	color : #313131;
+	background : #f4f4f6;
 	font-family : Meiryo, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'ＭＳ Ｐゴシック', Helvetica, Arial, sans-serif;
 }
 
@@ -27,8 +30,47 @@ a:hover, a:active {
 }
 
 /* header style */
+#l-header {
+	padding : 10px 0;
+	border-bottom : 1px solid #e6e6e8;
+	background : #fff;
+}
+#l-header .m-box-fixed {
+	position : relative;
+}
+#l-header h1 {
+	font-size : 169%;
+	font-family : Arial;
+}
+#l-header h1 i {
+	margin-right : 5px;
+	color : #ef4056;
+}
+#l-header h1 span {
+	color : #666;
+	font-family : Ubuntu;
+}
+#l-header .header-menu {
+	position : absolute;
+	right : 0;
+	top : 7px;
+}
+
 /* content style */
+#l-content {
+	padding : 50px 0;
+}
+
 /* footer style */
+#l-footer {
+	padding : 20px 0;
+	border-top : 1px solid #e6e6e8;
+}
+#l-footer p {
+	font-family : Arial;
+	text-align : center;
+}
+
 /* wysiwyg style */
 /* print style */
 @media print {

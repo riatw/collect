@@ -62,3 +62,52 @@
 		@include grid(12,4,10px);
 	}
 }
+
+.m-box-filter {
+	margin-bottom: 20px;
+
+	input {
+		width: 100%;
+		padding: 10px;
+		box-sizing: border-box;
+	}
+}
+
+.m-box-login {
+	.login-form {
+	}
+
+	.login-logout {
+		span {
+			margin-right: 10px;
+		}
+	}
+
+	input {
+		display: inline-block;
+		width: 13em;
+		height: 30px;
+		padding: 2px 5px;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+
+		&:focus,
+		&:hover {
+			border: 1px solid #333;
+		}
+	}
+	button {
+		display: inline-block;
+		height: 30px;
+		padding: 2px 10px;
+		border: 1px solid #ccc;
+		background: #FFF;
+		box-sizing: border-box;
+		cursor: pointer;
+
+		&:focus,
+		&:hover {
+			border: 1px solid #333;
+		}
+	}
+}
