@@ -67,7 +67,16 @@
 	</div>
 	<!-- [ WRAP ] -->
 
+	<script src="common/js/setting.js"></script>
 	<script src="common/lib/data-api/v3/js/mt-data-api.js"></script>
+	<script>
+		//api setting
+		var api = new MT.DataAPI({
+			baseUrl:  SETTING.CMSURL,
+			clientId: "collect"
+		});
+		var siteId = SETTING.BLOGID;
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.4.0/riot+compiler.min.js"></script>
 	<script src="login.tag.html" type="riot/tag"></script>
 	<script src="item.tag.html" type="riot/tag"></script>
@@ -76,8 +85,5 @@
 	</script>
 	<script src="common/lib/jquery/jquery.js"></script>
 	<script src="common/lib/modernizr/modernizr.js"></script>
-	<script src="common/js/common.js"></script>
-	<script src="common/js/site.js"></script>
-	<script src="common/js/analytics.js"></script>
 </body>
 </html>
